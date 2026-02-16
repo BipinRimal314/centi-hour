@@ -77,7 +77,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
+  gap: 16px;
   animation: fadeIn 0.6s ease-out;
 }
 
@@ -197,7 +197,6 @@ html, body {
 .segment-bar {
   display: flex;
   gap: 3px;
-  margin-top: 4px;
 }
 
 .segment {
@@ -209,7 +208,6 @@ html, body {
 
 /* ── Info button ──────────────────────────────── */
 .info-btn {
-  margin-top: 8px;
   background: none;
   border: 1px solid #27272A;
   border-radius: 6px;
@@ -229,7 +227,10 @@ html, body {
 
 /* ── Info panel ───────────────────────────────── */
 .info-panel {
-  max-width: 280px;
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
   text-align: center;
   animation: fadeIn 0.4s ease-out;
   padding: 16px 20px;
@@ -237,6 +238,8 @@ html, body {
   border: 1px solid #1C1C1E;
   background-color: #0F0F10;
   display: none;
+  z-index: 10;
+  cursor: pointer;
 }
 
 .info-panel.visible {

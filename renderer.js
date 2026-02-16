@@ -141,6 +141,12 @@
     $infoBtn.textContent = infoVisible ? "hide" : "why 100?";
   });
 
+  $infoPanel.addEventListener("click", () => {
+    infoVisible = false;
+    $infoPanel.classList.remove("visible");
+    $infoBtn.textContent = "why 100?";
+  });
+
   // ── Init ───────────────────────────────────────
   buildTicks();
   update();
