@@ -34,34 +34,34 @@ A subtle flash at each quarter boundary (25%, 50%, 75%, 0%) keeps you anchored w
 - Vanilla HTML/CSS/JS renderer (no framework overhead)
 - Fonts: JetBrains Mono + Space Grotesk (loaded from Google Fonts)
 
-## Getting Started
+## Install
 
-### Prerequisites
+### Download (no coding required)
 
-- Node.js 18+ and npm
+1. Go to [Releases](https://github.com/BipinRimal314/centi-hour/releases)
+2. Download the `.dmg` for your Mac:
+   - **Apple Silicon** (M1/M2/M3/M4): `Centi·Hour-*-arm64.dmg`
+   - **Intel**: `Centi·Hour-*-x64.dmg`
+3. Open the `.dmg`, drag Centi·Hour to Applications
+4. Launch from Applications — macOS will block it the first time since it's unsigned
+5. Go to **System Settings → Privacy & Security**, scroll down, click **"Open Anyway"**
+6. Right-click the percentage in your menubar → check **"Launch at Login"**
 
-### Install & Run
+### Build from Source
+
+Requires Node.js 18+ and npm.
 
 ```bash
 git clone https://github.com/BipinRimal314/centi-hour.git
 cd centi-hour
 npm install
-npm start
+npm start          # run in dev mode
+npm run build      # build .dmg for Apple Silicon
+npm run build:intel    # build .dmg for Intel Macs
+npm run build:universal # build .dmg that works on both
 ```
 
-### Build for Distribution
-
-```bash
-npm run build
-```
-
-This produces a `.dmg` and `.zip` in the `dist/` folder using [electron-builder](https://www.electron.build/).
-
-To create an unpacked app for testing:
-
-```bash
-npm run pack
-```
+Outputs go to `dist/`.
 
 ## File Structure
 
