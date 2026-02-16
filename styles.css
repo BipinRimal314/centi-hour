@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* ── Reset & base ─────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 280px;
+  height: 420px;
+  overflow: hidden;
+  background: transparent;
+  -webkit-app-region: no-drag;
+}
+
+/* ── Keyframes ────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 0.8; }
+}
+
+@keyframes flashBorder {
+  0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.3); }
+  50%  { box-shadow: 0 0 40px 8px rgba(255,255,255,0.15); }
+  100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+
+@keyframes subtlePulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.01); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Panel wrapper ────────────────────────────── */
+.panel {
+  width: 280px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0A0A0B;
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  color: #E4E4E7;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+  border-radius: 12px;
+}
+
+/* ── Ambient glow ─────────────────────────────── */
+.ambient-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(80px);
+  transition: background 1s ease;
+  animation: subtlePulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ── Main container ───────────────────────────── */
+.main-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.main-container.flash {
+  animation: flashBorder 0.8s ease-out;
+}
+
+/* ── Title ────────────────────────────────────── */
+.title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #52525B;
+}
+
+/* ── Ring area ────────────────────────────────── */
+.ring-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+}
+
+.ring-wrapper svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.decorative-ring {
+  animation: spin 120s linear infinite;
+  opacity: 0.08;
+}
+
+.ring-track {
+  transition: stroke 0.8s ease;
+}
+
+.ring-progress {
+  transition: stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.8s ease;
+}
+
+.tick-mark {
+  transition: stroke 0.8s ease;
+}
+
+/* ── Center content ───────────────────────────── */
+.center-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pct-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 52px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: #FAFAFA;
+}
+
+.pct-symbol {
+  font-size: 20px;
+  color: #52525B;
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+.clock-time {
+  font-size: 12px;
+  color: #71717A;
+  margin-top: 6px;
+  font-weight: 400;
+}
+
+/* ── Phase indicator ──────────────────────────── */
+.phase-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.phase-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: pulseGlow 2s ease-in-out infinite;
+  transition: background-color 0.8s ease, box-shadow 0.8s ease;
+}
+
+.phase-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: color 0.8s ease;
+}
+
+.phase-separator {
+  font-size: 11px;
+  color: #3F3F46;
+  margin: 0 4px;
+}
+
+.mins-left {
+  font-size: 11px;
+  color: #52525B;
+  font-weight: 400;
+}
+
+/* ── Segment bar ──────────────────────────────── */
+.segment-bar {
+  display: flex;
+  gap: 3px;
+  margin-top: 4px;
+}
+
+.segment {
+  width: 40px;
+  height: 3px;
+  border-radius: 2px;
+  transition: background-color 0.8s ease;
+}
+
+/* ── Info button ──────────────────────────────── */
+.info-btn {
+  margin-top: 8px;
+  background: none;
+  border: 1px solid #27272A;
+  border-radius: 6px;
+  padding: 6px 14px;
+  color: #52525B;
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.info-btn:hover {
+  border-color: #3F3F46;
+  color: #71717A;
+}
+
+/* ── Info panel ───────────────────────────────── */
+.info-panel {
+  max-width: 280px;
+  text-align: center;
+  animation: fadeIn 0.4s ease-out;
+  padding: 16px 20px;
+  border-radius: 10px;
+  border: 1px solid #1C1C1E;
+  background-color: #0F0F10;
+  display: none;
+}
+
+.info-panel.visible {
+  display: block;
+}
+
+.info-panel p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #A1A1AA;
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 400;
+}
+
+.info-panel .highlight {
+  color: #FAFAFA;
+}
+
+/* ── Bottom signature ─────────────────────────── */
+.signature {
+  position: absolute;
+  bottom: 20px;
+  font-size: 9px;
+  color: #27272A;
+  letter-spacing: 0.15em;
+  font-family: 'Space Grotesk', sans-serif;
+}

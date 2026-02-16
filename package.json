@@ -1,0 +1,39 @@
+{
+  "name": "centi-hour",
+  "version": "1.0.0",
+  "description": "A macOS menubar app that displays the current hour as a percentage (0–100%) — designed for ADHD brains.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --mac",
+    "pack": "electron-builder --mac --dir"
+  },
+  "author": "Bipin Rimal <bipinrimal314@gmail.com> (https://bipinrimal.com.np)",
+  "license": "MIT",
+  "dependencies": {
+    "menubar": "^9.5.0"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.bipinrimal.centi-hour",
+    "productName": "Centi·Hour",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "icon.png",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "files": [
+      "main.js",
+      "index.html",
+      "renderer.js",
+      "styles.css",
+      "icon.png"
+    ]
+  }
+}
