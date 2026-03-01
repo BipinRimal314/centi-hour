@@ -7,6 +7,12 @@
   const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
   const TICKS = [0, 25, 50, 75];
 
+  // ── Schedule config ────────────────────────────
+  // Actual: sleep 2 AM, wake 10 AM
+  // Healthy: sleep 10 PM, wake 6 AM
+  // Offset: 4 hours (actual wake - healthy wake)
+  const SCHEDULE_OFFSET_MS = 4 * 60 * 60 * 1000;
+
   // ── DOM refs ───────────────────────────────────
   const $ambientGlow   = document.getElementById("ambientGlow");
   const $mainContainer = document.getElementById("mainContainer");
@@ -14,6 +20,7 @@
   const $tickMarks     = document.getElementById("tickMarks");
   const $pctNumber     = document.getElementById("pctNumber");
   const $clockTime     = document.getElementById("clockTime");
+  const $equivValue    = document.getElementById("equivValue");
   const $phaseDot      = document.getElementById("phaseDot");
   const $phaseLabel    = document.getElementById("phaseLabel");
   const $minsLeft      = document.getElementById("minsLeft");
@@ -38,6 +45,10 @@
       minute: "2-digit",
       hour12: true,
     });
+  }
+
+  function getEquivalentTime(now) {
+    return new Date(now.getTime() - SCHEDULE_OFFSET_MS);
   }
 
   function getPhaseColor(pct) {
@@ -111,6 +122,7 @@
     // Center content
     $pctNumber.textContent = displayPct;
     $clockTime.textContent = formatTime(now);
+    $equivValue.textContent = formatTime(getEquivalentTime(now));
 
     // Ambient glow
     $ambientGlow.style.background = phase.glow;

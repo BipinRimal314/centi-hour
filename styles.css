@@ -158,6 +158,29 @@ html, body {
   font-weight: 400;
 }
 
+/* ── Equivalent time ─────────────────────────── */
+.equiv-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 4px;
+}
+
+.equiv-label {
+  font-size: 8px;
+  color: #3F3F46;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.equiv-value {
+  font-size: 10px;
+  color: #52525B;
+  font-weight: 400;
+}
+
 /* ── Phase indicator ──────────────────────────── */
 .phase-row {
   display: flex;
