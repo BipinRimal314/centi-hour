@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=280, initial-scale=1.0" />
-  <title>Centi·Hour</title>
+  <title>Drift</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -15,7 +15,7 @@
     <div class="main-container" id="mainContainer">
 
       <!-- Title -->
-      <div class="title">centi·hour</div>
+      <div class="title">drift</div>
 
       <!-- Ring + Percentage -->
       <div class="ring-wrapper">
@@ -55,9 +55,9 @@
             <span id="pctNumber">0</span><span class="pct-symbol">%</span>
           </div>
           <div class="clock-time" id="clockTime">00:00 AM</div>
-          <div class="equiv-time" id="equivTime">
-            <span class="equiv-label">if healthy</span>
-            <span class="equiv-value" id="equivValue">00:00 AM</span>
+          <div class="local-time" id="localTime">
+            <span class="local-label">LOCAL</span>
+            <span class="local-value" id="localValue">00:00 AM</span>
           </div>
         </div>
       </div>
@@ -78,8 +78,11 @@
         <div class="segment" id="seg3"></div>
       </div>
 
-      <!-- Info toggle -->
-      <button class="info-btn" id="infoBtn">why 100?</button>
+      <!-- Button row -->
+      <div class="btn-row">
+        <button class="info-btn" id="infoBtn">why 100?</button>
+        <button class="shift-btn" id="shiftBtn">time shift</button>
+      </div>
     </div>
 
     <!-- Bottom signature -->
@@ -94,6 +97,28 @@
         <br /><br />
         This is time in a language your mind already speaks.
       </p>
+    </div>
+
+    <!-- Shift panel (overlay) -->
+    <div class="shift-panel" id="shiftPanel">
+      <div class="shift-header">time shift</div>
+      <p class="shift-desc">See what time it would be if you woke up on schedule.</p>
+      <div class="shift-fields">
+        <label class="shift-field">
+          <span class="shift-field-label">I actually wake up at</span>
+          <input type="time" class="shift-input" id="actualWake" value="10:00" />
+        </label>
+        <label class="shift-field">
+          <span class="shift-field-label">I want to wake up at</span>
+          <input type="time" class="shift-input" id="idealWake" value="06:00" />
+        </label>
+      </div>
+      <div class="shift-preview" id="shiftPreview">shift: -4h 00m</div>
+      <div class="shift-actions">
+        <button class="shift-cancel" id="shiftCancel">cancel</button>
+        <button class="shift-off" id="shiftOff">turn off</button>
+        <button class="shift-start" id="shiftStart">start</button>
+      </div>
     </div>
   </div>
 

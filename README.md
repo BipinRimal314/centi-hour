@@ -1,14 +1,14 @@
-# Centi·Hour
+# Drift
 
 **A macOS menubar app that shows the current hour as a percentage (0–100%).**
 
-Your brain thinks in percentages, not sixths. When a clock says `:30`, it doesn't *feel* like half. But `50%` does. Centi·Hour translates time into a language your mind already speaks.
+Your brain thinks in percentages, not sixths. When a clock says `:30`, it doesn't *feel* like half. But `50%` does. Drift translates time into a language your mind already speaks.
 
 ![Screenshot Placeholder](screenshot.png)
 
 ## Why?
 
-ADHD brains (and many others) struggle with base-60 time. Minutes don't map to intuitive proportional thinking. Centi·Hour replaces `:00`–`:59` with `0%`–`100%`, giving you an instant feel for where you are in the hour.
+ADHD brains (and many others) struggle with base-60 time. Minutes don't map to intuitive proportional thinking. Drift replaces `:00`–`:59` with `0%`–`100%`, giving you an instant feel for where you are in the hour.
 
 - **0–25% (fresh)** — the hour just started, green
 - **25–50% (flowing)** — quarter gone, yellow
@@ -38,11 +38,11 @@ A subtle flash at each quarter boundary (25%, 50%, 75%, 0%) keeps you anchored w
 
 ### Download (no coding required)
 
-1. Go to [Releases](https://github.com/BipinRimal314/centi-hour/releases)
+1. Go to [Releases](https://github.com/BipinRimal314/drift/releases)
 2. Download the `.dmg` for your Mac:
-   - **Apple Silicon** (M1/M2/M3/M4): `Centi·Hour-*-arm64.dmg`
-   - **Intel**: `Centi·Hour-*-x64.dmg`
-3. Open the `.dmg`, drag Centi·Hour to Applications
+   - **Apple Silicon** (M1/M2/M3/M4): `Drift-*-arm64.dmg`
+   - **Intel**: `Drift-*-x64.dmg`
+3. Open the `.dmg`, drag Drift to Applications
 4. Launch from Applications — macOS will block it the first time since it's unsigned
 5. Go to **System Settings → Privacy & Security**, scroll down, click **"Open Anyway"**
 6. Right-click the percentage in your menubar → check **"Launch at Login"**
@@ -52,8 +52,8 @@ A subtle flash at each quarter boundary (25%, 50%, 75%, 0%) keeps you anchored w
 Requires Node.js 18+ and npm.
 
 ```bash
-git clone https://github.com/BipinRimal314/centi-hour.git
-cd centi-hour
+git clone https://github.com/BipinRimal314/drift.git
+cd drift
 npm install
 npm start          # run in dev mode
 npm run build      # build .dmg for Apple Silicon
@@ -66,7 +66,7 @@ Outputs go to `dist/`.
 ## File Structure
 
 ```
-centi-hour/
+drift/
 ├── package.json      # Dependencies & electron-builder config
 ├── main.js           # Electron main process + menubar setup
 ├── index.html        # Panel HTML

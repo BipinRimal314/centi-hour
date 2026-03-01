@@ -27,7 +27,7 @@ function getNextHourEvent(pct) {
   return "New hour at 100%";
 }
 
-export default function CentiHour() {
+export default function Drift() {
   const [pct, setPct] = useState(getHourPercent());
   const [now, setNow] = useState(new Date());
   const [showInfo, setShowInfo] = useState(false);
@@ -121,7 +121,7 @@ export default function CentiHour() {
           textTransform: "uppercase",
           color: "#52525B",
         }}>
-          centi·hour
+          drift
         </div>
 
         {/* Ring + Percentage */}

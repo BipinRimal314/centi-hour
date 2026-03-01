@@ -68,7 +68,7 @@ mb.on("ready", () => {
       },
       { type: "separator" },
       {
-        label: `Centi·Hour v${require("./package.json").version}`,
+        label: `Drift v${require("./package.json").version}`,
         enabled: false,
       },
       { type: "separator" },
